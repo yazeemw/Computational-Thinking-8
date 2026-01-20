@@ -1,0 +1,56 @@
+import turtle, time, random
+from utils import *
+
+# Section 1 - Variables
+# TODO - add starting values for all the variables
+x1 = -222
+y1 = 58
+x2 = -222
+y2 = -73
+x3 = -222
+y3 = -200
+x4 = -222
+y4 = 200
+
+
+# Section 2 - Setup
+# # TODO - use your own background, and set your four turtles to images of your choice
+set_background("moon")
+t1 = create_sprite("batman",x1,y4)
+t2 = create_sprite("robin",x2,y1)
+t3 = create_sprite("joker",x3,y2)
+t4 = create_sprite("superman",x4,y3)
+
+
+# # Section 3 - Racing
+# # TODO - set how much each variable changes by and increase the number of repeats to at least 30
+# # TODO - explain here which sprites are faster or slower
+for i in range(30):
+    x1 += 23
+    x2 += 30
+    x3 += 15
+    x4 += 25
+# Joker is the slowest because it's speed is the smallest number and Robin is the fastest because it's speed is the largest number
+    t1.goto(x1, y1)
+    t2.goto(x2, y2)
+    t3.goto(x3, y3)
+    t4.goto(x4, y4)
+
+    window.update()
+    time.sleep(0.1)
+
+
+# # Section 4 - Winner
+# # TODO - complete the elif for player 2 winning
+# # TODO - write another elif for player 3 and player 4
+if x1 >= x2 and x1 >= x3 and x1 >= x4:
+    print("batman wins!")
+elif x2 >= x1 and x2 >= x3 and x2 >= x4:
+    print("robin wins!")
+elif x3 >= x1 and x3 >= x2 and x3 >= x4:
+    print("joker wins!")
+elif x4 >= x1 and x4 >= x2 and x4 >= x3:
+    print("superman wins!")
+
+
+turtle.exitonclick()
